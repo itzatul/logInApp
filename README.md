@@ -1,5 +1,6 @@
 ### use: 
 - Clone the repository
+- `cd logInApp-master`
 
 - To Run Web Server
 - `cd server`
@@ -13,6 +14,6 @@
 - Run `npm install`
 - Run `bower install`
 - Run `gulp build` to Build and to start client server
-- Web Server runs on `http://localhost:3000` 
+- Client Server runs on `http://localhost:3000` 
 
 ![Screenshot](/ion.png?raw=true "ion")
