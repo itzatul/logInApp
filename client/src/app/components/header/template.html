@@ -1,0 +1,23 @@
+﻿<div class="header-container">
+    <div class="header-wrapper">
+        <div  ng-if="$ctrl.loggedInUser" class="user-image">
+            <figure class="user-pic header-profile-pic icon-avatar-default"></figure>
+        </div>
+        <div class="dropdown" ng-class="$ctrl.isOpen ? 'open': ''">
+            <div ng-if="$ctrl.loggedInUser" class="label-wrapper label"><a class="label-name label" href="#">{{$ctrl.userName}}</a></div>
+            <span class="glyphicon glyphicon-menu-hamburger" ng-click="$ctrl.toggleDropdown()"></span>
+            <ul class="dropdown-menu">
+                <li ng-if="$ctrl.loggedInUser">
+                    <a href ng-click="$ctrl.onLogOut()">
+                        Log Off
+                    </a>
+                </li>
+                <li ng-if="!$ctrl.loggedInUser">
+                    <a href ng-click="$ctrl.onLogIn()">
+                        Log In
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

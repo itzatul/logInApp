@@ -1,0 +1,124 @@
+﻿header {
+    display: block;
+    background: #778276;
+    height: auto;
+    background-size: cover;
+    .header-container{
+        height: 8rem;
+
+    .header-wrapper {
+        float: right;
+        margin: 2.5rem 3rem 2rem 0;
+        margin-bottom: 0;
+        text-align: right;
+
+        .user-image {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: .7rem;
+            width: 3.7rem;
+            height: 3.7rem;
+
+            .icon-avatar-default, .user-pic {
+                background-image: url("../images/components/header/icon-avatar.png");
+                width: 3.7rem;
+                height: 3.7rem;
+                border-radius: 50%;
+                overflow: hidden;
+                background-repeat: no-repeat;
+                background-position: top center;
+                background-size: cover;
+            }
+        }
+
+        .dropdown {
+            font-size: 1.3rem;
+            display: inline-block;
+
+            .label-wrapper {
+                display: inline-block;
+                padding: 0;
+
+                a.label-name {
+                    display: inline-block;
+                    color: #fff;
+                    font-family: proxima_nova_rgregular;
+                    font-size: 1.3rem;
+                    padding: 0 1rem 0 0;
+                    opacity: .7;
+                    cursor: default;
+                    font-weight: normal;
+                }
+            }
+
+            .dropdown-toggle {
+                display: inline-block;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-color: transparent;
+                background-position: right;
+                color: transparent;
+                width: 2rem;
+                height: 2.1rem;
+                border: none;
+                opacity: .7;
+                border-radius: 0;
+
+                &:hover {
+                    border: none;
+                    outline: none;
+                    color: transparent;
+                    opacity: 1;
+                }
+            }
+
+            &.open {
+                .dropdown-toggle {
+                    @extend .dropdown-toggle;
+                }
+            }
+
+            ul.dropdown-menu {
+                background: #8b938a;
+                border-radius: 0;
+                padding: 1.5rem 0;
+                border: none;
+                margin: 1.5rem 0 .5rem 0;
+                box-shadow: 0 37.5px 70px 0 rgba(0,0,0,.35);
+                min-width: 16.6rem;
+                left: initial;
+                right: 0;
+
+                &:before {
+                    width: 0;
+                    height: 0;
+                    border-left: 1rem solid transparent;
+                    border-right: 1rem solid transparent;
+                    border-bottom: 1rem solid #8b938a;
+                    content: "";
+                    position: absolute;
+                    top: -.7rem;
+                    right: 0;
+                }
+
+                li {
+                    padding: 0 1rem;
+
+                    a {
+                        color: #fff;
+                        font-weight: bold;
+                        padding: 1rem;
+                        font-size: 1.2rem;
+                        outline: none;
+                        text-decoration: none;
+
+                        &:hover, &:focus {
+                            background-color: #9ca39b;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}

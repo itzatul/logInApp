@@ -1,0 +1,39 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "jquery/jquery.d.ts": {
+        "commit": "e18e130e2188348070f98d92b98c0ea481c4a086"
+    },
+    "angularjs/angular.d.ts": {
+      "commit": "01a3adcdb6c2626e9c9fc340813d6f489116594d"
+    },
+    "node/node.d.ts": {
+        "commit": "178dee76b23618d84237e9601cf21772252883cc"
+    },
+    "gulp/gulp.d.ts": {
+        "commit": "68114f9ff37de0f92c94126b6e0164e026a1737a"
+    },
+    "angularjs/angular-route.d.ts": {
+      "commit": "01a3adcdb6c2626e9c9fc340813d6f489116594d"
+    },
+    "angular-ui-bootstrap/angular-ui-bootstrap.d.ts": {
+        "commit": "4ba73ef59f93e38a70573cfc46375de37b004635"
+    },
+    "angularjs-toaster/angularjs-toaster.d.ts": {
+        "commit": "4ba73ef59f93e38a70573cfc46375de37b004635"
+    },
+    "angular-file-upload/angular-file-upload.d.ts": {
+        "commit": "4ed4731d6b9f802846b9f8bc1be55d1ffdde43f2"
+    },
+    "es6-promise/es6-promise.d.ts": {
+        "commit": "5df472ec56d5b9fbc76589383852008d46055c61"
+    },
+    "ng-dialog/ng-dialog.d.ts": {
+        "commit": "32f2a3b467d9ec6efb23b9db4a4501e24c661da1"
+    }
+  }
+}

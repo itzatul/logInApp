@@ -1,0 +1,18 @@
+<div id="loginContainer" class="container-fluid">
+    <form name="form" class="login-form col-xs-12 col-md-12">
+        <div class="form-container">
+            <div class="input email-wrapper">
+                <input autofocus="autofocus" class="input-email valid" id="userNameOrEmail" ng-model="$ctrl.user.username" name="userNameOrEmail" placeholder="Email address" type="text" required>
+            </div>
+            <div class="input password-wrapper">
+                <input class="input-password verify-password" id="password" ng-model="$ctrl.user.password" name="password" placeholder="Password" type="password" required>
+            </div>
+        </div>
+        <div class="submitBtn-wrapper col-md-6 col-xs-6">
+            <button class="submitbtn validate-user" type="submit" ng-click="$ctrl.loginSubmit()">Sign in</button>
+        </div>
+        <div class="submitBtn-wrapper col-md-6 col-xs-6">
+           <button class="submitbtn validate-user" type="submit" ng-click="$ctrl.cancel()">Cancel</button>
+        </div>
+    </form>
+</div>
