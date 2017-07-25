@@ -126,6 +126,15 @@ gulp.task('images_components',
             .pipe(reload({ stream: true }));
     });
 
+gulp.task('image',
+    ['images_components'],
+    function () {
+        return gulp.src('./images/**/*')
+            .pipe(chmod(777))
+            .pipe(flatten())
+            .pipe(gulp.dest(config.root + "/images"));
+    });
+
 gulp.task('css_lib', function () {
     return gulp.src(config.assets.lib.css)
         .pipe(plumber(plumberSetting))
@@ -153,6 +162,23 @@ gulp.task('static', function () {
     return gulp.src('src/app/static/*.json')
       .pipe(gulp.dest(config.root + '/static'));
 });
+
+gulp.task('css_fonts',
+    function() {
+        gulp.src(config.assets.lib.font)
+            .pipe(chmod(777))
+            .pipe(flatten())
+            .pipe(gulp.dest(config.root + "/css/fonts"));
+    });
+
+gulp.task('font',
+    ['css_fonts'],
+    function() {
+        return gulp.src(['fonts/**'].concat(config.assets.lib.font))
+            .pipe(chmod(777))
+            .pipe(flatten())
+            .pipe(gulp.dest(config.root + "/fonts"));
+    });
 
 gulp.task('pages',
     function () {
@@ -234,14 +260,81 @@ gulp.task('local_data',
     });
 
 
+
+gulp.task('Debug', function () {
+    env = 'dev';
+    return runSequence(
+        ['update-ts-ref', 'local_data', 'script', 'image', 'css_lib', 'font', 'html']
+        );
+});
+
 gulp.task('build', function () {
     return runSequence(
         ['update-ts-ref', 'local_data']
-        , ['script','css_lib', 'sass', 'html']
+        , ['script', 'image', 'css_lib', 'sass', 'font', 'html']
         , 'static', 'pages', 'watch', 'serve'
         );
 });
-    
+
+gulp.task('Dev', ['clean'], function () {
+    process.env.NODE_ENV = 'dev';
+    config = require('./config/' + "dev");
+    return runSequence(
+        ['update-ts-ref', 'local_data']
+        , ['script', 'image', 'css_lib', 'sass', 'font', 'html']
+        , 'static', 'pages'
+        );
+});
+
+gulp.task('QA', ['clean'], function () {
+    process.env.NODE_ENV = 'qa';
+    config = require('./config/' + "qa");
+    return runSequence(
+        ['update-ts-ref', 'local_data']
+        , ['script', 'image', 'css_lib', 'sass', 'font', 'html']
+        , 'static',  'pages'
+        );
+});
+
+gulp.task('Staging', ['clean'], function () {
+    process.env.NODE_ENV = 'staging';
+    config = require('./config/' + "staging");
+    return runSequence(
+        ['update-ts-ref', 'local_data']
+        , ['script', 'image', 'css_lib', 'sass', 'font', 'html']
+
+        );
+});
+
+gulp.task('PerfTest', ['clean'], function () {
+    process.env.NODE_ENV = 'staging';
+    config = require('./config/' + "staging");
+    return runSequence(
+        ['update-ts-ref', 'local_data']
+        , ['script', 'image', 'css_lib', 'sass', 'font', 'html']
+
+        );
+});
+
+gulp.task('PreProd', ['clean'], function () {
+    process.env.NODE_ENV = 'preprod';
+    config = require('./config/' + "preprod");
+    return runSequence(
+        ['update-ts-ref', 'local_data']
+        , ['script', 'image', 'css_lib', 'sass', 'font', 'html']
+
+        );
+});
+
+gulp.task('prod', ['clean'], function () {
+    process.env.NODE_ENV = 'prod';
+    config = require('./config/' + "prod");
+    return runSequence(
+        ['update-ts-ref', 'local_data']
+        , ['script', 'image', 'css_lib', 'sass', 'font', 'html']
+        );
+});
+
 gulp.task('watch', function () {
     gulp.watch(['src/**/**/*.ts', "!src/app/common/*.ts"], ['script']);
     gulp.watch('src/**/**/*.ts', ['script']);
